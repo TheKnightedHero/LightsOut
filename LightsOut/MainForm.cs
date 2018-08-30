@@ -70,16 +70,16 @@ namespace LightsOut
         private void MainForm_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
-            for (int r = 0; r < NumCells; r++)
+            for (int row = 0; row < NumCells; row++)
             {
-                for (int c = 0; c < NumCells; c++)
+                for (int col = 0; col < NumCells; col++)
                 {
                     // Get proper pen and brush for on/off
                     // grid section
                     Brush brush;
                     Pen pen;
 
-                    if (grid[r, c])
+                    if (grid[row, col])
                     {
                         pen = Pens.Black;
                         brush = Brushes.White; // On
@@ -92,8 +92,8 @@ namespace LightsOut
                     }
 
                     // Determine (x,y) coord of row and col to draw rectangle
-                    int x = c * CellLength + GridOffset;
-                    int y = r * CellLength + GridOffset;
+                    int x = col * CellLength + GridOffset;
+                    int y = row * CellLength + GridOffset;
 
                     // Draw outline and inner rectangle
                     g.DrawRectangle(pen, x, y, CellLength, CellLength);
@@ -113,7 +113,7 @@ namespace LightsOut
             {
                 for (int j = 0; j < NumCells; j++)
                 {
-                    if (grid[i, j] == false)        //right idea, but doesn't currently work
+                    if (grid[i, j] == false)       
                     {
                         counter++;
                     }
