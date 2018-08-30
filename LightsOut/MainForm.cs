@@ -27,15 +27,15 @@ namespace LightsOut
             rand = new Random(); // Initializes random number generator
             grid = new bool[NumCells, NumCells];
             // Turn entire grid on
-            for (int r = 0; r < NumCells; r++)
+            for (int row = 0; row < NumCells; row++)
             {
-                for (int c = 0; c < NumCells; c++)
+                for (int col = 0; col < NumCells; col++)
                 {
-                    grid[r, c] = true;
+                    grid[row, col] = true;
                 }
             }
-                
-                    
+
+
         }
 
 
@@ -44,10 +44,10 @@ namespace LightsOut
         private void button1_Click(object sender, EventArgs e)
         {
             // Fill grid with either white or black
-            for (int r = 0; r < NumCells; r++)
-                for (int c = 0; c < NumCells; c++)
-                    grid[r, c] = rand.Next(2) == 1;
-           
+            for (int row = 0; row < NumCells; row++)
+                for (int col = 0; col < NumCells; col++)
+                    grid[row, col] = rand.Next(2) == 1;
+
             // Redraw grid
             this.Invalidate();
         }
@@ -90,11 +90,11 @@ namespace LightsOut
                         pen = Pens.White;
                         brush = Brushes.Black; // Off
                     }
-                    
+
                     // Determine (x,y) coord of row and col to draw rectangle
                     int x = c * CellLength + GridOffset;
                     int y = r * CellLength + GridOffset;
-                    
+
                     // Draw outline and inner rectangle
                     g.DrawRectangle(pen, x, y, CellLength, CellLength);
                     g.FillRectangle(brush, x + 1, y + 1, CellLength - 1, CellLength - 1);
