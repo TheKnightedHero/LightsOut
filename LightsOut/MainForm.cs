@@ -109,11 +109,11 @@ namespace LightsOut
             //varify if all squares are black
             //if all are black, return true
 
-            for (int i = 0; i < NumCells; i++)
+            for (int row = 0; row < NumCells; row++)
             {
-                for (int j = 0; j < NumCells; j++)
+                for (int col = 0; col < NumCells; col++)
                 {
-                    if (grid[i, j] == false)       
+                    if (grid[row, col] == false)
                     {
                         counter++;
                     }
